@@ -1,6 +1,9 @@
+const Calculator = require('../Calculator')
+
 describe("Addition", () => {
+    const calculator = new Calculator();
     test("adding two positive numbers", () => {
-        const calcutor = new Calculator();
-        expect(calcutor.add(1,2)).toEqual(3);
+        
+        expect(calculator.add(1,2)).toEqual(3);
     });
 });
