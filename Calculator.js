@@ -22,22 +22,20 @@ class Calculator {
             //if its a number or comma
             if (!Number.isNaN(parseInt(char)) || char === '.') {
                 buffer += char;
-                input = input.slice(1);
             } 
+            //check if its a negative number
             else if (char === '-' && Number.isNaN(parseInt(prevChar))) {
                 buffer += char;
-                input = input.slice(1);
             }
-            //if its anything else
+            //if its not a number = first operand or end of expression
             else if (Number.isNaN(parseInt(char)) && char !== '.'){
-                if (x === null) {
+                if (x === null) { //first operand
                     op = char;
                     
                     x = parseInt(buffer);
                     buffer = '';
-                    input = input.slice(1);
                 } 
-                else {
+                else if (buffer !== ''){ 
                     y = parseInt(buffer);
                     buffer='';
                     break;
@@ -45,6 +43,7 @@ class Calculator {
             }
 
             prevChar = char; //keep that one to find negative numbers
+            input = input.slice(1); //remove first char
         }
 
         //there was only one operand, 
@@ -89,6 +88,14 @@ class Calculator {
     }
 
     operate() {
+        //sanity check
+        //empty string
+        if (this.rawInput === '') return; 
+        //expression ends with operation -> invalid
+        if (Number.isNaN(parseInt(this.rawInput[this.rawInput.length-1]))) {
+            this.rawInput = this.rawInput.slice(0, this.rawInput.length-1);
+            return;
+        }
         const {x, y, op} = this.processInput();
 
 
