@@ -42,7 +42,7 @@ class Controller {
         this.btn_point.classList.add('button');
         this.inputContainer.appendChild(this.btn_point);
         this.btn_point.addEventListener('click', (e) => {
-            this.topline.textContent += '+';
+            this.topline.textContent += '.';
         });
 
         //create buttons
@@ -108,7 +108,9 @@ class Controller {
         this.inputContainer.appendChild(this.btn_clear);
         this.btn_clear.addEventListener('click', (e) => {
             this.topline.textContent = '';
+            this.bottomline.textContent = '';
             this.model.rawInput = '';
+            this.model.result = 0;
         });
 
 

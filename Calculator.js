@@ -32,11 +32,11 @@ class Calculator {
                 if (x === null) { //first operand
                     op = char;
                     
-                    x = parseInt(buffer);
+                    x = parseFloat(buffer);
                     buffer = '';
                 } 
                 else if (buffer !== ''){ 
-                    y = parseInt(buffer);
+                    y = parseFloat(buffer);
                     buffer='';
                     break;
                 }
@@ -48,7 +48,7 @@ class Calculator {
 
         //there was only one operand, 
         if (y === null && buffer !== '') {
-            y = parseInt(buffer);
+            y = parseFloat(buffer);
             buffer = '';
         }
 
@@ -96,6 +96,8 @@ class Calculator {
             this.rawInput = this.rawInput.slice(0, this.rawInput.length-1);
             return;
         }
+
+        //get values and operation type
         const {x, y, op} = this.processInput();
 
 
