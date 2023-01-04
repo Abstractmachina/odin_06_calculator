@@ -129,6 +129,7 @@ class Controller {
         this.btn_result.classList.add('button');
         this.btn_result.style.gridColumn = '4/4';
         this.btn_result.style.gridRow = '4/6';
+        
         this.inputContainer.appendChild(this.btn_result);
         this.btn_result.addEventListener('click', (e) => {
             // this.topline.textContent += '+';
@@ -145,6 +146,7 @@ class Controller {
         this.btn_clear.classList.add('button');
         this.btn_clear.style.gridColumn = '1/3';
         this.btn_clear.style.gridRow = '1';
+        this.btn_clear.style.backgroundColor = 'rgb(190, 0, 0)';
         this.inputContainer.appendChild(this.btn_clear);
         this.btn_clear.addEventListener('click', (e) => {
             this.topline.textContent = '';
