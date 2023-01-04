@@ -36,6 +36,14 @@ class Controller {
                 this.topline.textContent += i.toString();
             });
         }
+        this.btn_point = document.createElement('button');
+        this.btn_point.textContent = '.';
+        this.btn_point.setAttribute('id', 'btnPoint');
+        this.btn_point.classList.add('button');
+        this.inputContainer.appendChild(this.btn_point);
+        this.btn_point.addEventListener('click', (e) => {
+            this.topline.textContent += '+';
+        });
 
         //create buttons
         //addition

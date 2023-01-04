@@ -5,9 +5,6 @@ class Calculator {
         this.rawInput ='';
     }
 
-
-
-
     processInput() {
         if (this.rawInput === '') return null;
 
@@ -16,19 +13,26 @@ class Calculator {
         let y = null;
         let op = null;
         let buffer = '';
+        let prevChar = '';
         
-
+        //increment through string
         while (input.length > 0) {
             const char = input[0];
             
+            //if its a number or comma
             if (!Number.isNaN(parseInt(char)) || char === '.') {
                 buffer += char;
                 input = input.slice(1);
-                continue;
             } 
-            if (Number.isNaN(parseInt(char)) && char !== '.'){
+            else if (char === '-' && Number.isNaN(parseInt(prevChar))) {
+                buffer += char;
+                input = input.slice(1);
+            }
+            //if its anything else
+            else if (Number.isNaN(parseInt(char)) && char !== '.'){
                 if (x === null) {
                     op = char;
+                    
                     x = parseInt(buffer);
                     buffer = '';
                     input = input.slice(1);
@@ -39,6 +43,8 @@ class Calculator {
                     break;
                 }
             }
+
+            prevChar = char; //keep that one to find negative numbers
         }
 
         //there was only one operand, 
@@ -53,7 +59,6 @@ class Calculator {
         }
 
         this.rawInput = input;
-        console.log(this.rawInput);
         return {x: x, y: y, op: op};
     }
 
@@ -99,6 +104,7 @@ class Calculator {
                 break;
             case '/':
                 this.result = this.divide(x,y);
+                break;
             default:
                 this.result = 0;
                 alert ('Invalid Input');
