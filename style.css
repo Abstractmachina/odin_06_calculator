@@ -22,5 +22,12 @@ body {
 
 .button {
     padding: 1em;
-    margin: 0.5em;
+}
+
+#inputContainer {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-auto-rows: 20%;
+    column-gap: 0.5em;
+    row-gap: 0.5em;
 }
