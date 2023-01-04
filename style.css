@@ -43,6 +43,8 @@ body {
     background-color: rgb(181, 181, 181);
 }
 
+
+
 #btnDiv, #btnMult, #btnPlus, #btnMinus {
     background-color: rgb(87, 87, 87);
     color: white;
@@ -52,6 +54,9 @@ body {
     background-color:rgb(255, 225, 0);
 }
 
+.button:active {
+    background-color: rgb(100, 50, 50);
+}
 
 #inputContainer {
     flex-grow: 0.8;
